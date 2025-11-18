@@ -1,0 +1,258 @@
+import React, { useState } from "react";
+
+export default function NKUPage() {
+  const [lang, setLang] = useState("POL");
+
+  const t = {
+    POL: {
+      title: "Głos Uczniów – Razem dla Sprawiedliwej Szkoły",
+      desc:
+        "NKU powstało, aby chronić prawa ucznia i dziecka, dbać o równość szkolną oraz przeciwdziałać absurdalnym zasadom narzucanym w systemie edukacji.",
+      postulaty: "Nasze Postulaty",
+      p1: "Ochrona praw dziecka",
+      p1desc:
+        "Działamy na rzecz konsekwentnego respektowania praw dziecka zgodnie z Konwencją o prawach dziecka oraz polskim prawem oświatowym.",
+      p2: "Ochrona praw ucznia",
+      p2desc:
+        "Walczymy z nadużyciami, niesprawiedliwymi zasadami oceniania i brakiem respektowania regulaminów szkolnych.",
+      p3: "Równość szkół w kwestii zadań domowych",
+      p3desc:
+        "Domagamy się, aby przepisy dotyczące nieobowiązkowych prac domowych były jednakowe dla wszystkich szkół – publicznych i niepublicznych.",
+      p4: "Koniec absurdalnych zasad",
+      p4desc:
+        "Przepis o ograniczaniu liczby skreśleń czy nieuwzględnianiu poprawnej odpowiedzi nie może mieć miejsca w rzetelnej edukacji.",
+    },
+    GB: {
+      title: "Students' Voice – Together for a Fair School",
+      desc:
+        "NKU exists to protect pupils' rights, promote school equality and oppose arbitrary rules imposed in the education system.",
+      postulaty: "Our Demands",
+      p1: "Protection of children's rights",
+      p1desc:
+        "We strive to ensure consistent respect for children's rights in accordance with the Convention on the Rights of the Child and national education law.",
+      p2: "Protection of pupils' rights",
+      p2desc:
+        "We fight against abuses, unfair grading policies and lack of respect for school regulations.",
+      p3: "Equal treatment of schools regarding optional homework",
+      p3desc:
+        "We demand that rules on non-mandatory homework are equal for all schools — public and non-public.",
+      p4: "End of absurd rules",
+      p4desc:
+        "Rules that limit the number of strikes or ignore correct answers cannot exist in a fair education system.",
+    },
+    UK: {
+      title: "Голос Учнів – Разом за Справедливу Школу",
+      desc:
+        "NKU створено для захисту прав учнів і дітей, забезпечення рівності в школі та протидії абсурдним правилам в системі освіти.",
+      postulaty: "Наші вимоги",
+      p1: "Захист прав дитини",
+      p1desc:
+        "Ми наполягаємо на послідовному дотриманні прав дитини відповідно до Конвенції про права дитини та національного законодавства.",
+      p2: "Захист прав учня",
+      p2desc:
+        "Ми боремося з порушеннями, несправедливою системою оцінювання та нехтуванням шкільними правилами.",
+      p3: "Рівність шкіл щодо необов'язкових домашніх завдань",
+      p3desc:
+        "Вимагаємо рівних правил щодо необов'язкових завдань для всіх шкіл — державних і недержавних.",
+      p4: "Кінець абсурдних правил",
+      p4desc:
+        "Обмеження кількості викреслень або ігнорування правильної відповіді не має місця в чесній освіті.",
+    },
+  };
+
+  const current = t[lang];
+
+  return (
+    <div className="min-h-screen bg-white text-black overflow-x-hidden">
+      {/* Dynamic animated background */}
+      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-red-600 via-white to-red-300 animate-gradientSlow opacity-30"></div>
+      <div className="fixed inset-0 -z-20 bg-[radial-gradient(circle_at_center,white_0%,transparent_70%)] animate-pulseSlow"></div>
+
+      {/* NAVBAR */}
+      <nav className="w-full bg-white/80 backdrop-blur-xl shadow-lg flex items-center px-6 py-4 border-b border-red-200 animate-fadeIn">
+        {/* Logo – stały rozmiar */}
+        <div className="flex-shrink-0" style={{ width: "72px", height: "72px" }}>
+          <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
+            <rect width="100" height="100" rx="14" fill="#ffffff" stroke="#d11b2b" strokeWidth="6" />
+            <circle cx="50" cy="50" r="22" fill="#d11b2b" className="animate-pulse" />
+            <text x="50" y="57" textAnchor="middle" fontSize="28" fill="#fff" fontFamily="Inter, sans-serif">NKU</text>
+          </svg>
+        </div>
+
+        <h1 className="text-3xl font-extrabold text-red-700 ml-4 tracking-wide drop-shadow-md animate-slideDown">Niezależny Kongres Uczniowski</h1>
+
+        <div className="flex-1" />
+
+        {/* Language selector */}
+        <div className="flex items-center gap-3 animate-fadeInSlow">
+          {[
+            { code: "POL", title: "Polski", flag: "poland" },
+            { code: "GB", title: "English", flag: "gb" },
+            { code: "UK", title: "Українська", flag: "ua" },
+          ].map((l) => (
+            <button
+              key={l.code}
+              onClick={() => setLang(l.code)}
+              className={`flex items-center gap-2 px-3 py-1 rounded-xl border transition-all duration-300 hover:scale-105 shadow-sm ${
+                lang === l.code ? "border-red-700 bg-red-100" : "border-transparent bg-white"
+              } focus:outline-none`}
+              title={l.title}
+            >
+              <span className="w-6 h-4 inline-block">{
+                {
+                  poland: (
+                    <svg viewBox="0 0 64 48"><rect width="64" height="24" fill="#fff"/><rect width="64" height="24" y="24" fill="#dc143c"/></svg>
+                  ),
+                  gb: (
+                    <svg viewBox="0 0 60 30"><rect width="60" height="30" fill="#012169"/><path d="M0 0 L60 30 M60 0 L0 30" stroke="#fff" strokeWidth="6"/><path d="M0 0 L60 30 M60 0 L0 30" stroke="#c8102e" strokeWidth="4"/><path d="M30 0 L30 30" stroke="#fff" strokeWidth="10"/><path d="M0 15 L60 15" stroke="#fff" strokeWidth="10"/><path d="M30 0 L30 30" stroke="#c8102e" strokeWidth="6"/><path d="M0 15 L60 15" stroke="#c8102e" strokeWidth="6"/></svg>
+                  ),
+                  ua: (
+                    <svg viewBox="0 0 64 48"><rect width="64" height="24" fill="#0057b7"/><rect width="64" height="24" y="24" fill="#ffd700"/></svg>
+                  ),
+                }[l.flag]
+              }</span>
+              <span className="font-semibold text-sm">{l.code}</span>
+            </button>
+          ))}
+        </div>
+      </nav>
+
+      {/* HEADER */}
+      <header className="text-center py-20 bg-gradient-to-b from-white to-red-100 animate-fadeInSlow">
+        <h2 className="text-5xl font-extrabold text-red-700 mb-6 drop-shadow-lg animate-popIn">{current.title}</h2>
+        <p className="text-xl text-gray-700 max-w-3xl mx-auto animate-fadeUp">{current.desc}</p>
+      </header>
+
+      {/* POSTULATY */}
+      <section className="max-w-5xl mx-auto py-16 px-6">
+        <h3 className="text-4xl font-bold text-red-700 mb-12 text-center animate-popIn">{current.postulaty}</h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {[1, 2, 3, 4].map((i, index) => (
+            <div
+              key={i}
+              className="p-8 bg-white shadow-xl rounded-3xl border-l-8 border-red-600 animate-card"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <h4 className="text-2xl font-bold text-red-700 mb-3">{current[`p${i}`]}</h4>
+              <p className="text-gray-700">{current[`p${i}desc`]}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <footer className="text-center py-8 bg-red-700 text-white font-semibold shadow-inner animate-fadeIn">
+        © {new Date().getFullYear()} Niezależny Kongres Uczniowski — NKU
+      </footer>
+
+      {/* Kontakt i Social Media */}
+      <section className="max-w-5xl mx-auto py-12 px-6 text-center animate-fadeIn">
+        <h3 className="text-4xl font-bold text-red-700 mb-6">Kontakt</h3>
+        <p className="text-lg text-gray-700 mb-6">Możesz skontaktować się z NKU pod adresem: <span className="font-semibold">kontakt@nku.org</span></p>
+
+        <div className="flex justify-center gap-10 mt-8">
+          {/* Instagram */}
+          <a href="#" className="transform transition hover:scale-125 hover:-translate-y-1">
+            <img src="/instagram.png" alt="Instagram" className="w-14 h-14" />
+          </a>
+
+          {/* Facebook */}
+          <a href="#" className="transform transition hover:scale-125 hover:-translate-y-1">
+            <img src="/facebook.png" alt="Facebook" className="w-14 h-14" />
+          </a>
+
+          {/* Discord */}
+          <a href="#" className="transform transition hover:scale-125 hover:-translate-y-1">
+            <img src="/discord.png" alt="Discord" className="w-14 h-14" />
+          </a>
+        </div>
+      </section>
+
+
+      {/* Animacje */}
+      <style>{`
+        @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+        .animate-fadeIn { animation: fadeIn 1s ease forwards; }
+
+        @keyframes fadeInSlow { from {opacity:0;} to {opacity:1;} }
+        .animate-fadeInSlow { animation: fadeIn 2s ease forwards; }
+
+        @keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+        .animate-fadeUp { animation: fadeUp 1.4s ease forwards; }
+
+        @keyframes popIn { 0% {transform:scale(0.7); opacity:0;} 100% {transform:scale(1); opacity:1;} }
+        .animate-popIn { animation: popIn 0.7s cubic-bezier(0.22, 1.61, 0.36, 1) forwards; }
+
+        @keyframes slideDown { from {opacity:0; transform:translateY(-10px);} to {opacity:1; transform:translateY(0);} }
+        .animate-slideDown { animation: slideDown 1s ease forwards; }
+
+        @keyframes gradientSlow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-gradientSlow { background-size: 300% 300%; animation: gradientSlow 15s ease infinite; }
+
+        @keyframes pulseSlow { 0%,100% {opacity:0.4;} 50% {opacity:0.7;} }
+        .animate-pulseSlow { animation: pulseSlow 6s ease-in-out infinite; }
+
+        @keyframes card { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
+        .animate-card { animation: card 1s ease forwards; }
+      `}</style>
+
+      {/* Globalne style i animacje dodatkowe */}
+      <style>{`
+        /* Gradient pulsujący */
+        .bg-flag-animate {
+          background: linear-gradient(90deg, #d60000, white, #d60000);
+          background-size: 300% 300%;
+          animation: flagFlow 8s ease infinite;
+        }
+
+        @keyframes flagFlow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        /* Ikony Social Hover Glow */
+        .social-glow:hover {
+          filter: drop-shadow(0 0 10px rgba(255,0,0,0.9));
+          transform: scale(1.2) translateY(-3px);
+        }
+
+        /* Efekt nawigacji */
+        nav h1 { transition: 0.3s ease; }
+        nav h1:hover { color: #b30000; letter-spacing: 1px; }
+
+        /* Pulsujący czerwony akcent */
+        .pulse-red {
+          animation: pulseRed 2s infinite;
+        }
+        @keyframes pulseRed {
+          0% { opacity: 1; }
+          50% { opacity: 0.6; }
+          100% { opacity: 1; }
+        }
+
+        /* Animowany glow pod nagłówkiem */
+        .title-glow {
+          text-shadow: 0 0 10px rgba(255,0,0,0.7), 0 0 20px rgba(255,0,0,0.5);
+        }
+
+        /* Flagi animacja hover */
+        .flag-hover:hover {
+          transform: rotate(6deg) scale(1.12);
+          transition: 0.3s;
+        }
+
+        /* Animowany box do postulatów */
+        .card-animate:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+          transition: 0.25s ease;
+        }
+      `}</style>
+    </div>
+  );
+}
